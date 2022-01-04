@@ -8,13 +8,13 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: gambling
-      # MYSQL_USER: root
       MYSQL_DATABASE: model1
     volumes:
-      - ./BDD/bdd.sql:/var/lib/mysql
+      - ./BDD:/docker-entrypoint-initdb.d/:ro
+
 
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8080:8080  
